@@ -52,7 +52,7 @@ let showCaster = (data) => {
 let initializeUI = () => {
 	$(":root")
 		.css("--link-color", `${settings.LinkColor || "rgba(230,126,34,1)"}`)
-		.css("--name-color", `${settings.NameColor || "rgba(255, 0, 0, 1)"}`);
+		.css("--name-color", `${settings.UserColor || "rgba(255, 0, 0, 1)"}`);
 
 	$("#logo img").removeClass().addClass(`${settings.ImageShape} ${settings.EnableShadow ? "shadow" : ""}`);
 	$("#name, #link").removeClass().addClass(`${settings.EnableShadow ? "shadow" : ""}`);
