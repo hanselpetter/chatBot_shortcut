@@ -27,7 +27,7 @@ PROJECT_NAME="${opt_project_name:-"${CI_PROJECT_NAME}"}";
 BUILD_VERSION=${CI_BUILD_VERSION:-"1.0.0-snapshot"};
 DOCKER_ORG="camalot";
 tag="${DOCKER_ORG}/${PROJECT_NAME}";
-FOLDER_NAME="MedalOverlay";
+FOLDER_NAME="Shoutout";
 
 [[ -p "${PROJECT_NAME// }" ]] && __error "'-p' (project name) attribute is required.";
 [[ -p "${BUILD_VERSION// }" ]] && __error "'-v' (version) attribute is required.";
