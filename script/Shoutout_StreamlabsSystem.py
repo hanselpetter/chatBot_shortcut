@@ -46,6 +46,8 @@ class Settings(object):
             self.InTransition = "slideInRight"
             self.OutTransition = "slideOutLeft"
             self.AttentionAnimation = "none"
+            self.ImageShape = "circle"
+            self.EnableShadow = True
             with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
                 fileSettings = json.load(f, encoding="utf-8")
                 self.__dict__.update(fileSettings)

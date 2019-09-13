@@ -14,7 +14,7 @@ body, html {
 	border: none;
 	font-size: 76px/1;
 	font-weight: bold;
-	font-family: droid-sans, sans-serif;
+	font-family: bangers, sans-serif;
 	text-align: center;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -25,7 +25,7 @@ body, html {
 	overflow-y: hidden;
 }
 
-.config-messages {
+#config-messages {
 	bottom: 0;
 	top: 0;
 	left: 0;
@@ -39,11 +39,11 @@ body, html {
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 10px;
 }
-.config-messages header {
+#config-messages header {
 	text-align: center;
 	margin: 2vh 0 5vh 0;
 }
-.config-messages div.group {
+#config-messages div.group {
 	margin: 0 0 5vh 0;
 }
 
@@ -63,12 +63,12 @@ body, html {
 	padding: 0 25% 0 25%;
 }
 
-.link {
+#link {
 	text-align: center;
 	font-size: 30px;
 	color: var(--link-color, rgba(230,126,34,1));
 }
-.name {
+#name {
 	text-align: center;
 	font-size: 30px;
 	margin-bottom: 5px;
@@ -76,15 +76,31 @@ body, html {
 	color: var(--name-color, rgba(255, 0, 0, 1));
 }
 
-.logo {
+img.shadow {
+	box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+div.shadow {
+	text-shadow: 0px 3px 5px #aaa;
+}
+
+#logo {
 	text-align: center;
 	margin-bottom: 5px;
 	border-radius: inherit;
 }
-
-img.round {
+#logo img {
 	width:200px;
 	height: auto;
+}
+
+#logo img.rounded {
+	border-radius: 10%;
+}
+
+#logo img.circle {
 	border-radius: 50%;
-	box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+
+#logo img.square {
+	border-radius: 0%;
 }

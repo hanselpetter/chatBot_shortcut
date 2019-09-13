@@ -56,6 +56,25 @@
 		"wsevent": "EVENT_NONE",
 		"group": "Command"
 	},
+	"EnableShadow": {
+		"type": "checkbox",
+		"value": "true",
+		"label": "Enable Shadow",
+		"tooltip": "Puts a shadow around the elements",
+		"group": "Style"
+	},
+	"ImageShape": {
+		"type": "dropdown",
+		"value": "circle",
+		"items": [
+			"square",
+			"rounded",
+			"circle"
+		],
+		"label": "Logo Shape",
+		"tooltip": "Set the shape of the logo",
+		"group": "Style"
+	},
 	"UserColor": {
 		"type": "colorpicker",
 		"label": "Caster Color",
@@ -176,7 +195,6 @@
 		"tooltip": "Set how the alert transitions out",
 		"group": "Style"
 	},
-
 	"OpenScriptUpdater": {
 		"type": "button",
 		"label": "Check For Updates",

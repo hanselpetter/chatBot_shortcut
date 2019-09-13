@@ -5,11 +5,11 @@ let showCaster = (data) => {
 	console.log(settings);
 	$("#alert")
 		.queue(() => {
-			$(".name").html(data.user.toUpperCase());
-			$(".logo img").attr("src", data.image);
-			$(".link").html("https://www.twitch.tv/" + data.user);
+			$("#name").html(data.user.toUpperCase());
+			$("#logo img").attr("src", data.image);
+			$("#link").html("https://www.twitch.tv/" + data.user);
 			if(settings.InSound && settings.PlaySound) {
-				$(".sound embed").attr("src", settings.InSound);
+				$("#sound embed").attr("src", settings.InSound);
 			}
 
 			$("#alert")
@@ -30,7 +30,7 @@ let showCaster = (data) => {
 		.delay((settings.Duration || 10) * 1000)
 		.queue(() => {
 			if (settings.OutSound && settings.PlaySound) {
-				$(".sound embed").attr("src", settings.OutSound);
+				$("#sound embed").attr("src", settings.OutSound);
 			}
 			$("#alert")
 				.removeClass()
@@ -53,10 +53,13 @@ let initializeUI = () => {
 	$(":root")
 		.css("--link-color", `${settings.LinkColor || "rgba(230,126,34,1)"}`)
 		.css("--name-color", `${settings.NameColor || "rgba(255, 0, 0, 1)"}`);
+
+	$("#logo img").removeClass().addClass(`${settings.ImageShape} ${settings.EnableShadow ? "shadow" : ""}`);
+	$("#name, #link").removeClass().addClass(`${settings.EnableShadow ? "shadow" : ""}`);
 };
 
 let connectWebsocket = () => {
-
+	console.log("connect");
 	//-------------------------------------------
 	//  Create WebSocket
 	//-------------------------------------------
@@ -156,9 +159,9 @@ let validateInit = () => {
 	// Connect if API_Key is inserted
 	// Else show an error on the overlay
 	if (!validatedSettings.isValid) {
-		$(".config-messages").removeClass("hidden");
-		$(".config-messages .settings").removeClass(validatedSettings.hasSettings ? "valid" : "hidden");
-		$(".config-messages .api-key").removeClass(validatedSettings.hasApiKey ? "valid" : "hidden");
+		$("#config-messages").removeClass("hidden");
+		$("#config-messages .settings").removeClass(validatedSettings.hasSettings ? "valid" : "hidden");
+		$("#config-messages .api-key").removeClass(validatedSettings.hasApiKey ? "valid" : "hidden");
 		return false;
 	}
 	return true;
@@ -168,5 +171,7 @@ jQuery(document).ready(() => {
 	if (validateInit()) {
 		initializeUI();
 		connectWebsocket();
+	} else {
+		console.log("Invalid");
 	}
 });
