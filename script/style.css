@@ -104,3 +104,16 @@ div.shadow {
 #logo img.square {
 	border-radius: 0%;
 }
+
+#alert.none {
+	animation-name: no-animation;
+}
+
+@keyframes no-animation {
+	0% {
+
+	}
+	100% {
+
+	}
+}

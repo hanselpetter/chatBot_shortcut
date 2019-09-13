@@ -58,7 +58,7 @@ let initializeUI = () => {
 	$("#name, #link").removeClass().addClass(`${settings.EnableShadow ? "shadow" : ""}`);
 };
 
-let connectWebsocket = () => {
+function connectWebsocket () {
 	console.log("connect");
 	//-------------------------------------------
 	//  Create WebSocket
@@ -139,7 +139,7 @@ let connectWebsocket = () => {
 		setTimeout(() => connectWebsocket(), 5000);
 	};
 
-};
+}
 
 let validateSettings = () => {
 	let hasApiKey = typeof API_Key !== "undefined";
