@@ -1,0 +1,187 @@
+{
+	"output_file": "settings.json",
+	"Command": {
+		"type": "textbox",
+		"value": "!so",
+		"label": "Shoutout Command",
+		"tooltip": "The command used to shout out a streamer",
+		"group": "Command"
+	},
+	"Cooldown": {
+		"type": "slider",
+		"value": 30,
+		"min": 1,
+		"max": 600,
+		"ticks": 1,
+		"label": "Cooldown Time (seconds)",
+		"tooltip": "The cooldown time between the use of the command",
+		"group": "Command"
+	},
+	"Permission": {
+		"type": "dropdown",
+		"value": "Moderator",
+		"items": [
+			"Everyone",
+			"Regular",
+			"Subscriber",
+			"Moderator"
+		],
+		"label": "Permission level",
+		"tooltip": "Set the permission level for the command",
+		"group": "Command"
+	},
+	"Duration": {
+		"type": "slider",
+		"value": 10,
+		"min": 1,
+		"max": 30,
+		"ticks": 1,
+		"label": "Duration (seconds)",
+		"tooltip": "The length of time to show the overlay",
+		"group": "Command"
+	},
+	"OpenOverlayInBrowser": {
+		"type": "button",
+		"label": "Open Overlay In Browser",
+		"tooltip": "Opens overlay in browser for testing",
+		"function": "OpenOverlayInBrowser",
+		"wsevent": "EVENT_NONE",
+		"group": "Command"
+	},
+	"SendTestEvent": {
+		"type": "button",
+		"label": "Send Test Event",
+		"tooltip": "Sends a test event to the overlay",
+		"function": "SendTestEvent",
+		"wsevent": "EVENT_NONE",
+		"group": "Command"
+	},
+	"UserColor": {
+		"type": "colorpicker",
+		"label": "Caster Color",
+		"value": "rgba(255,0,0,255)",
+		"tooltip": "",
+		"group": "Style"
+	},
+	"LinkColor": {
+		"type": "colorpicker",
+		"label": "Twitch Link Color",
+		"value": "rgba(230,126,34,1)",
+		"tooltip": "",
+		"group": "Style"
+	},
+	"InTransition": {
+		"type": "dropdown",
+		"value": "slideInRight",
+		"items": [
+			"bounceIn",
+			"bounceInDown",
+			"bounceInLeft",
+			"bounceInRight",
+			"bounceInUp",
+			"fadeIn",
+			"fadeInDown",
+			"fadeInDownBig",
+			"fadeInLeft",
+			"fadeInLeftBig",
+			"fadeInRight",
+			"fadeInRightBig",
+			"fadeInUp",
+			"fadeInUpBig",
+			"flip",
+			"flipInX",
+			"flipInY",
+			"jackInTheBox",
+			"lightSpeedIn",
+			"rollIn",
+			"rotateIn",
+			"rotateInDownLeft",
+			"rotateInDownRight",
+			"rotateInUpLeft",
+			"rotateInUpRight",
+			"slideInUp",
+			"slideInDown",
+			"slideInLeft",
+			"slideInRight",
+			"zoomIn",
+			"zoomInDown",
+			"zoomInLeft",
+			"zoomInRight",
+			"zoomInUp"
+		],
+		"label": "In Transition",
+		"tooltip": "Set how the alert transitions in",
+		"group": "Style"
+	},
+	"AttentionAnimation": {
+		"type": "dropdown",
+		"value": "none",
+		"items": [
+			"none",
+			"bounce",
+			"flash",
+			"jello",
+			"heartBeat",
+			"pulse",
+			"rubberBand",
+			"shake",
+			"tada",
+			"wobble"
+		],
+		"label": "Attention Animation",
+		"tooltip": "Animation after it shows",
+		"group": "Style"
+	},
+	"OutTransition": {
+		"type": "dropdown",
+		"value": "slideOutLeft",
+		"items": [
+			"none",
+			"bounceOut",
+			"bounceOutDown",
+			"bounceOutLeft",
+			"bounceOutRight",
+			"bounceOutUp",
+			"fadeOut",
+			"fadeOutDown",
+			"fadeOutDownBig",
+			"fadeOutLeft",
+			"fadeOutLeftBig",
+			"fadeOutRight",
+			"fadeOutRightBig",
+			"fadeOutUp",
+			"fadeOutUpBig",
+			"flip",
+			"flipOutX",
+			"flipOutY",
+			"hinge",
+			"lightSpeedOut",
+			"rollOut",
+			"rotateOut",
+			"rotateOutDownLeft",
+			"rotateOutDownRight",
+			"rotateOutUpLeft",
+			"rotateOutUpRight",
+			"slideOutUp",
+			"slideOutDown",
+			"slideOutLeft",
+			"slideOutRight",
+			"zoomOut",
+			"zoomOutDown",
+			"zoomOutLeft",
+			"zoomOutRight",
+			"zoomOutUp"
+		],
+		"label": "Out Transition",
+		"tooltip": "Set how the alert transitions out",
+		"group": "Style"
+	},
+
+	"OpenScriptUpdater": {
+		"type": "button",
+		"label": "Check For Updates",
+		"tooltip": "Check for updates",
+		"function": "OpenScriptUpdater",
+		"wsevent": "EVENT_NONE"
+	}
+}
