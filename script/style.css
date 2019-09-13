@@ -58,9 +58,9 @@ body, html {
 	left: 50%;
 	width:50vw;
 	height:50vh;
-	margin-top: -25vh; /*set to a negative number 1/2 of your height*/
-	margin-left: -50vw; /*set to a negative number 1/2 of your width*/
-	padding: 0 25% 0 25%;
+	margin-top: -30vh; /*set to a negative number 1/2 of your height*/
+	margin-left: -37vw; /*set to a negative number 1/2 of your width*/
+	padding: 10vh 20vh 8vh 20vh;
 }
 
 #link {
