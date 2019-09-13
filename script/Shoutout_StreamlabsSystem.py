@@ -15,6 +15,10 @@ import threading
 import shutil
 import tempfile
 
+# sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "libs/updater"))
+# import ChatbotUpdater
+
+
 clr.AddReference("IronPython.SQLite.dll")
 clr.AddReference("IronPython.Modules.dll")
 
@@ -28,7 +32,7 @@ Creator = "DarthMinos"
 Version = "1.0.0-snapshot"
 Repo = "camalot/chatbot-shoutout"
 
-SettingsFile = os.path.join(os.path.dirname(__file__), "settings.json")
+SettingsFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
 ScriptSettings = None
 
 class Settings(object):
