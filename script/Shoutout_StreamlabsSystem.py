@@ -32,6 +32,7 @@ Creator = "DarthMinos"
 Version = "1.0.0-snapshot"
 Repo = "camalot/chatbot-shoutout"
 
+ReadMeFile = "https://github.com/" + Repo + "/blob/develop/ReadMe.md"
 SettingsFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
 ScriptSettings = None
 
@@ -56,7 +57,7 @@ class Settings(object):
                 fileSettings = json.load(f, encoding="utf-8")
                 self.__dict__.update(fileSettings)
         except Exception as e:
-            Parent.Log(ScriptName, str(e))            
+            Parent.Log(ScriptName, str(e))
 
     def Reload(self, jsonData):
         """ Reload settings from the user interface by given json data. """
@@ -157,8 +158,10 @@ def OpenScriptUpdater():
         updaterConfig = {
             "path": os.path.realpath(os.path.join(currentDir,"../")),
             "version": Version,
+            "name": ScriptName,
             "chatbot": os.path.join(chatbotRoot, "Streamlabs Chatbot.exe"),
             "script": os.path.basename(os.path.dirname(os.path.realpath(__file__))),
+            "website": Website,
             "repository": {
                 "owner": repoVals[0],
                 "name": repoVals[1]
@@ -172,3 +175,11 @@ def OpenScriptUpdater():
         os.startfile(updater)
     except OSError as exc: # python >2.5
         raise
+
+def OpenFollowOnTwitchLink():
+    os.startfile("https://twitch.tv/DarthMinos")
+    return
+
+def OpenReadMeLink():
+    os.startfile(ReadMeFile)
+    return

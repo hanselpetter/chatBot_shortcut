@@ -7,6 +7,16 @@
 		"tooltip": "The command used to shout out a streamer",
 		"group": "Command"
 	},
+	"Duration": {
+		"type": "slider",
+		"value": 10,
+		"min": 1,
+		"max": 30,
+		"ticks": 1,
+		"label": "Duration (seconds)",
+		"tooltip": "The length of time to show the overlay",
+		"group": "Command"
+	},
 	"Cooldown": {
 		"type": "slider",
 		"value": 30,
@@ -28,16 +38,6 @@
 		],
 		"label": "Permission level",
 		"tooltip": "Set the permission level for the command",
-		"group": "Command"
-	},
-	"Duration": {
-		"type": "slider",
-		"value": 10,
-		"min": 1,
-		"max": 30,
-		"ticks": 1,
-		"label": "Duration (seconds)",
-		"tooltip": "The length of time to show the overlay",
 		"group": "Command"
 	},
 	"OpenOverlayInBrowser": {
@@ -194,6 +194,20 @@
 		"label": "Out Transition",
 		"tooltip": "Set how the alert transitions out",
 		"group": "Style"
+	},
+	"OpenFollowOnTwitchLink": {
+		"type": "button",
+		"label": "Follow Me On Twitch",
+		"tooltip": "Get Medal",
+		"function": "OpenFollowOnTwitchLink",
+		"wsevent": "EVENT_NONE"
+	},
+	"OpenReadMeLink": {
+		"type": "button",
+		"label": "Open ReadMe",
+		"tooltip": "Open ReadMe file",
+		"function": "OpenReadMeLink",
+		"wsevent": "EVENT_NONE"
 	},
 	"OpenScriptUpdater": {
 		"type": "button",

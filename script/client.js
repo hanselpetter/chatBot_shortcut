@@ -1,10 +1,13 @@
 "use strict";
 let animationEndClasses = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-let showCaster = (data) => {
-	console.log(data);
-	console.log(settings);
+function showCaster (data) {
+
+	if (!data || !data.name || !data.image) {
+		return;
+	}
+
 	$("#alert")
-		.queue(() => {
+		.queue(function() {
 			$("#name").html(data.user.toUpperCase());
 			$("#logo img").attr("src", data.image);
 			$("#link").html("https://www.twitch.tv/" + data.user);
@@ -28,7 +31,7 @@ let showCaster = (data) => {
 				.dequeue();
 		})
 		.delay((settings.Duration || 10) * 1000)
-		.queue(() => {
+		.queue(function() {
 			if (settings.OutSound && settings.PlaySound) {
 				$("#sound embed").attr("src", settings.OutSound);
 			}
@@ -49,14 +52,14 @@ let showCaster = (data) => {
 		});
 }
 
-let initializeUI = () => {
+function initializeUI () {
 	$(":root")
 		.css("--link-color", `${settings.LinkColor || "rgba(230,126,34,1)"}`)
 		.css("--name-color", `${settings.UserColor || "rgba(255, 0, 0, 1)"}`);
 
 	$("#logo img").removeClass().addClass(`${settings.ImageShape} ${settings.EnableShadow ? "shadow" : ""}`);
 	$("#name, #link").removeClass().addClass(`${settings.EnableShadow ? "shadow" : ""}`);
-};
+}
 
 function connectWebsocket () {
 	console.log("connect");
@@ -89,7 +92,7 @@ function connectWebsocket () {
 	//-------------------------------------------
 	//  Websocket Event: OnMessage
 	//-------------------------------------------
-	socket.onmessage = (message) => {
+	socket.onmessage = function (message) {
 		console.log(message);
 		// Parse message
 		let socketMessage = JSON.parse(message.data);
@@ -124,24 +127,24 @@ function connectWebsocket () {
 	//-------------------------------------------
 	//  Websocket Event: OnError
 	//-------------------------------------------
-	socket.onerror = (error) => {
+	socket.onerror = function (error) {
 		console.error(`Error: ${error}`);
 	};
 
 	//-------------------------------------------
 	//  Websocket Event: OnClose
 	//-------------------------------------------
-	socket.onclose = () => {
+	socket.onclose = function () {
 		console.log("close");
 		// Clear socket to avoid multiple ws objects and EventHandlings
 		socket = null;
 		// Try to reconnect every 5s
-		setTimeout(() => connectWebsocket(), 5000);
+		setTimeout(function() {  connectWebsocket(); }, 5000);
 	};
 
 }
 
-let validateSettings = () => {
+function validateSettings () {
 	let hasApiKey = typeof API_Key !== "undefined";
 	let hasSettings = typeof settings !== "undefined";
 
@@ -152,7 +155,7 @@ let validateSettings = () => {
 	};
 };
 
-let validateInit = () => {
+function validateInit () {
 	// verify settings...
 	let validatedSettings = validateSettings();
 
@@ -165,9 +168,9 @@ let validateInit = () => {
 		return false;
 	}
 	return true;
-};
+}
 
-jQuery(document).ready(() => {
+jQuery(document).ready(function () {
 	if (validateInit()) {
 		initializeUI();
 		connectWebsocket();
