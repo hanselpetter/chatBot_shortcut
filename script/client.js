@@ -1,11 +1,9 @@
 "use strict";
 let animationEndClasses = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 function showCaster (data) {
-
-	if (!data || !data.name || !data.image) {
+	if (!data || !data.user || !data.image) {
 		return;
 	}
-
 	$("#alert")
 		.queue(function() {
 			$("#name").html(data.user.toUpperCase());
@@ -62,7 +60,6 @@ function initializeUI () {
 }
 
 function connectWebsocket () {
-	console.log("connect");
 	//-------------------------------------------
 	//  Create WebSocket
 	//-------------------------------------------
@@ -72,7 +69,6 @@ function connectWebsocket () {
 	//  Websocket Event: OnOpen
 	//-------------------------------------------
 	socket.onopen = function () {
-		console.log("open");
 		// AnkhBot Authentication Information
 		let auth = {
 			author: "DarthMinos",
@@ -108,6 +104,9 @@ function connectWebsocket () {
 						if (data) {
 							showCaster({ user: eventData.user, image: data });
 						}
+					},
+					error: function(err) {
+						console.error(err);
 					}
 				});
 
@@ -153,7 +152,7 @@ function validateSettings () {
 		hasSettings: hasSettings,
 		hasApiKey: hasApiKey
 	};
-};
+}
 
 function validateInit () {
 	// verify settings...
