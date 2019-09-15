@@ -40,13 +40,10 @@ cp "${WORKSPACE}/ReadMe.md" "${WORKSPACE}/temp/script/";
 sed -i "s/Version = \"1.0.0-snapshot\"/Version = \"${BUILD_VERSION}\"/g" "${WORKSPACE}/temp/script/Shoutout_StreamlabsSystem.py";
 
 # Download the latest version of the updater
-curl -s https://api.github.com/repos/camalot/chatbotscriptupdater/releases/latest \
-| grep "browser_download_url.*chatbotscriptupdater-.*zip" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -O "${WORKSPACE}/temp/script/chatbotscriptupdater.zip" -
-
-unzip -d ${WORKSPACE}/temp/script/libs/updater/ chatbotscriptupdater.zip;
+curl -sS $(curl -s https://api.github.com/repos/camalot/chatbotscriptupdater/releases/latest \
+| jq -r '.assets[0] .browser_download_url') > ${WORKSPACE}/temp/script/chatbotscriptupdater.zip
+mkdir -p ${WORKSPACE}/temp/script/libs/updater/
+unzip -d ${WORKSPACE}/temp/script/libs/updater/ ${WORKSPACE}/temp/script/chatbotscriptupdater.zip;
 rm "${WORKSPACE}/temp/script/chatbotscriptupdater.zip";
 
 mv "${WORKSPACE}/temp/script" "${WORKSPACE}/temp/${FOLDER_NAME}";
