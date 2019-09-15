@@ -45,6 +45,8 @@ curl -sS $(curl -s https://api.github.com/repos/camalot/chatbotscriptupdater/rel
 
 sleep 2;
 
+cat ${WORKSPACE}/temp/script/chatbotscriptupdater.zip
+
 mkdir -p ${WORKSPACE}/temp/script/libs/updater/
 unzip -d ${WORKSPACE}/temp/script/libs/updater/ ${WORKSPACE}/temp/script/chatbotscriptupdater.zip;
 sleep 2;
