@@ -32,6 +32,7 @@ Creator = "DarthMinos"
 Version = "1.0.0-snapshot"
 Repo = "camalot/chatbot-shoutout"
 
+DonateLink = "https://paypal.me/camalotdesigns"
 ReadMeFile = "https://github.com/" + Repo + "/blob/develop/ReadMe.md"
 SettingsFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
 ScriptSettings = None
@@ -153,12 +154,13 @@ def OpenScriptUpdater():
                 Parent.Log(ScriptName, "Copy: " + full_file_name)
                 shutil.copy(full_file_name, tempdir)
         updater = os.path.join(tempdir, "ChatbotScriptUpdater.exe")
-        updaterConfigFile = os.path.join(tempdir, "chatbot.json")
+        updaterConfigFile = os.path.join(tempdir, "update.manifest")
         repoVals = Repo.split('/')
         updaterConfig = {
             "path": os.path.realpath(os.path.join(currentDir,"../")),
             "version": Version,
             "name": ScriptName,
+            "requiresRestart": True,
             "kill": [],
             "execute": {
                 "before": [],
@@ -187,4 +189,7 @@ def OpenFollowOnTwitchLink():
 
 def OpenReadMeLink():
     os.startfile(ReadMeFile)
+    return
+def OpenDonateLink():
+    os.startfile(DonateLink)
     return

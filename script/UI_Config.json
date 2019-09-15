@@ -195,6 +195,13 @@
 		"tooltip": "Set how the alert transitions out",
 		"group": "Style"
 	},
+	"OpenDonateLink": {
+		"type": "button",
+		"label": "Donate",
+		"tooltip": "Donate to support development",
+		"function": "OpenDonateLink",
+		"wsevent": "EVENT_NONE"
+	},
 	"OpenFollowOnTwitchLink": {
 		"type": "button",
 		"label": "Follow Me On Twitch",
