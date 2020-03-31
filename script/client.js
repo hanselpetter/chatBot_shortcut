@@ -1,4 +1,7 @@
 "use strict";
+
+window.settings = { ...DEFAULT_SETTINGS, ...window.settings };
+
 let animationEndClasses = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 function showCaster (data) {
 	if (!data || !data.user || !data.image) {
