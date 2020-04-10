@@ -65,3 +65,15 @@ Click on the script in the list to bring up the configuration.
 | ---- | ----------- |  
 | `Check For Updates` | Check for new versions of the script | 
 | `Save Settings` | Save the changes to the settings | 
+
+
+## OVERLAY SETUP IN OBS / SLOBS 
+
+- Add a new `Browser Source` in OBS / SLOBS  
+[![](https://i.imgur.com/TAMQkeql.png)](https://i.imgur.com/TAMQkeq.png)
+- Set as a `Local File` and choose the `overlay.html` in the `Shoutout Overlay` script directory. You can easily get to the script directory location from right clicking on `Shoutout Overlay` and choose `Open Script Folder`.
+  - As a secondary method, you can leave `Local File` unchecked, and Click on `Open Overlay In Browser`. Copy the Url from the browser, and use that as the Url. The url should start with `file://`.
+- Set the `width` and `height` to the resolution of your `Base (Canvas) Resolution`. 
+- Add any additional custom CSS that you would like to add.
+- Check both `Shutdown source when not visible` and `Refresh browser when scene becomes active`.  
+[![](https://i.imgur.com/nouqPh0l.png)](https://i.imgur.com/nouqPh0.png)
