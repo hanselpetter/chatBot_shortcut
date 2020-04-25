@@ -118,11 +118,12 @@ def ReloadSettings(jsondata):
 def Execute(data):
     if data.IsChatMessage():
         commandTrigger = data.GetParam(0).lower()
-        if commandTrigger == ScriptSettings.Command and not Parent.IsOnCooldown(ScriptName, commandTrigger):
-            if data.GetParamCount() > 1:
-                Parent.Log(ScriptName, "Trigger Command")
-                SendUsernameWebsocket(data.GetParam(1).strip("@"))
-                Parent.AddCooldown(ScriptName, ScriptSettings.Command, ScriptSettings.Cooldown)
+        if Parent.HasPermission(data.User, ScriptSettings.Permission, ""):
+            if commandTrigger == ScriptSettings.Command and not Parent.IsOnCooldown(ScriptName, commandTrigger):
+                if data.GetParamCount() > 1:
+                    Parent.Log(ScriptName, "Trigger Command")
+                    SendUsernameWebsocket(data.GetParam(1).strip("@"))
+                    Parent.AddCooldown(ScriptName, ScriptSettings.Command, ScriptSettings.Cooldown)
     return
 
 
