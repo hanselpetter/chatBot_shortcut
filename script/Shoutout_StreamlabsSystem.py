@@ -46,6 +46,8 @@ class Settings(object):
             self.Command = "!so"
             self.Cooldown = 30
             self.Duration = 10
+            self.LinkText = "https://twitch.tv/{username}"
+            self.ShowLink = True
             self.UserColor = "rgba(255,0,0,1)"
             self.LinkColor = "rgba(255,0,0,1)"
             self.Permission = "Moderator"

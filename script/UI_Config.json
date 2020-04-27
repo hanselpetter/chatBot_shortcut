@@ -7,6 +7,13 @@
 		"tooltip": "The command used to shout out a streamer",
 		"group": "Command"
 	},
+	"LinkText": {
+		"type": "textbox",
+		"value": "twitch.tv/{username}",
+		"label": "Link Text",
+		"tooltip": "Text that shows under the users name\n\n{username} = the username",
+		"group": "Command"
+	},
 	"Duration": {
 		"type": "slider",
 		"value": 10,
@@ -55,6 +62,13 @@
 		"function": "SendTestEvent",
 		"wsevent": "EVENT_NONE",
 		"group": "Command"
+	},
+	"ShowLink": {
+		"type": "checkbox",
+		"value": "true",
+		"label": "Show Link",
+		"tooltip": "Shows/Hides the user link field.",
+		"group": "Style"
 	},
 	"EnableShadow": {
 		"type": "checkbox",

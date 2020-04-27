@@ -1,6 +1,7 @@
 :root {
 	--link-color: rgba(230,126,34,1);
 	--name-color: rgba(255, 0, 0, 1);
+	--link-visible: inline-block;
 }
 
 
@@ -67,6 +68,7 @@ body, html {
 	text-align: center;
 	font-size: 30px;
 	color: var(--link-color, rgba(230,126,34,1));
+	display: var(--link-visible, inline-block);
 }
 #name {
 	text-align: center;

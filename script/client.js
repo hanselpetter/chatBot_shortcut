@@ -11,7 +11,7 @@ function showCaster (data) {
 		.queue(function() {
 			$("#name").html(data.user.toUpperCase());
 			$("#logo img").attr("src", data.image);
-			$("#link").html("https://www.twitch.tv/" + data.user);
+			$("#link").html(settings.LinkText.replace("\{username\}", data.user));
 			if(settings.InSound && settings.PlaySound) {
 				$("#sound embed").attr("src", settings.InSound);
 			}
@@ -56,7 +56,9 @@ function showCaster (data) {
 function initializeUI () {
 	$(":root")
 		.css("--link-color", `${settings.LinkColor || "rgba(230,126,34,1)"}`)
-		.css("--name-color", `${settings.UserColor || "rgba(255, 0, 0, 1)"}`);
+		.css("--name-color", `${settings.UserColor || "rgba(255, 0, 0, 1)"}`)
+		.css("--link-visible", settings.ShowLink ? "inline-block" : "none")
+		;
 
 	$("#logo img").removeClass().addClass(`${settings.ImageShape} ${settings.EnableShadow ? "shadow" : ""}`);
 	$("#name, #link").removeClass().addClass(`${settings.EnableShadow ? "shadow" : ""}`);
@@ -75,7 +77,7 @@ function connectWebsocket () {
 		// AnkhBot Authentication Information
 		let auth = {
 			author: "DarthMinos",
-			website: "darthminos.tv",
+			website: "http://darthminos.tv",
 			api_key: API_Key,
 			events: [
 				"EVENT_SO_SETTINGS",
