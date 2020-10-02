@@ -238,6 +238,13 @@
 		"function": "OpenFollowOnTwitchLink",
 		"wsevent": "EVENT_NONE"
 	},
+	"OpenDiscordLink": {
+		"type": "button",
+		"label": "JOIN DISCORD",
+		"tooltip": "Join Discord for updates and support",
+		"function": "OpenDiscordLink",
+		"wsevent": "EVENT_NONE"
+	},
 	"OpenReadMeLink": {
 		"type": "button",
 		"label": "Open ReadMe",

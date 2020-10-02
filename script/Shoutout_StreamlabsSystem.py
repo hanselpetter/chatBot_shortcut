@@ -34,6 +34,7 @@ Repo = "camalot/chatbot-shoutout"
 
 ReadMeFile = "https://github.com/" + Repo + "/blob/develop/ReadMe.md"
 SettingsFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
+UIConfigFile = os.path.join(os.path.dirname(__file__), "UI_Config.json")
 ScriptSettings = None
 
 class Settings(object):
@@ -41,25 +42,43 @@ class Settings(object):
 
     def __init__(self, settingsfile=None):
         """ Load in saved settings file if available else set default values. """
+        defaults = self.DefaultSettings(UIConfigFile)
         try:
-            self.Command = "!so"
-            self.Cooldown = 30
-            self.Duration = 10
-            self.LinkText = "https://twitch.tv/{username}"
-            self.ShowLink = True
-            self.UserColor = "rgba(255,0,0,1)"
-            self.LinkColor = "rgba(255,0,0,1)"
-            self.Permission = "Moderator"
-            self.InTransition = "slideInRight"
-            self.OutTransition = "slideOutLeft"
-            self.AttentionAnimation = "none"
-            self.ImageShape = "circle"
-            self.EnableShadow = True
+            # self.Command = "!so"
+            # self.Cooldown = 30
+            # self.Duration = 10
+            # self.LinkText = "https://twitch.tv/{username}"
+            # self.ShowLink = True
+            # self.UserColor = "rgba(255,0,0,1)"
+            # self.LinkColor = "rgba(255,0,0,1)"
+            # self.Permission = "Moderator"
+            # self.InTransition = "slideInRight"
+            # self.OutTransition = "slideOutLeft"
+            # self.AttentionAnimation = "none"
+            # self.ImageShape = "circle"
+            # self.EnableShadow = True
+            self.__dict__.update(defaults)
+
             with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
                 fileSettings = json.load(f, encoding="utf-8")
                 self.__dict__.update(fileSettings)
         except Exception as e:
+            self.__dict__.update(defaults)
             Parent.Log(ScriptName, str(e))
+
+
+    def DefaultSettings(self, settingsfile=None):
+        defaults = dict()
+        with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
+            ui = json.load(f, encoding="utf-8")
+        for key in ui:
+            try:
+                if "value" in ui[key]:
+                    defaults[key] = ui[key]['value']
+            except:
+                if key != "output_file":
+                    Parent.Log(ScriptName, "DefaultSettings(): Could not find key {0} in settings".format(key))
+        return defaults
 
     def Reload(self, jsonData):
         """ Reload settings from the user interface by given json data. """
@@ -208,4 +227,7 @@ def OpenGithubDonateLink():
     return
 def OpenTwitchDonateLink():
     os.startfile("http://twitch.tv/darthminos/subscribe")
+    return
+def OpenDiscordLink():
+    os.startfile("https://discord.com/invite/vzdpjYk")
     return
