@@ -150,6 +150,25 @@ def Execute(data):
 def Tick():
     return
 
+def Parse(parseString, userid, username, targetid, targetname, message):    
+    if "$shoutout(" in parseString:
+        s = re.search(r'\$shoutout\((.*?)\)', parseString)
+        if s.groups()<= 0:
+            return re.sub(r'\$shoutout\(.*?\)', "Failed to detect username", parseString)
+        else:
+            shoutout_target = s.groups()[0]
+            if "$" in shoutout_target:
+                return parseString
+            else:
+                Parent.Log(ScriptName, "Trigger custom parameter")
+                SendUsernameWebsocket(shoutout_target.strip("@"))
+                return re.sub(r'\$shoutout\(.*?\)', "", parseString)
+    elif "$shoutout" in parseString:
+        Parent.Log(ScriptName, "Trigger custom parameter")
+        SendUsernameWebsocket(userid.strip("@"))
+        return parseString.strip("$shoutout")
+    return parseString
+
 # ---------------------------------------
 # Script UI Button Functions
 # ---------------------------------------

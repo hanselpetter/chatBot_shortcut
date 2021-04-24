@@ -66,6 +66,18 @@ Click on the script in the list to bring up the configuration.
 | `Check For Updates` | Check for new versions of the script | 
 | `Save Settings` | Save the changes to the settings | 
 
+### Custom parameters
+
+This script adds 2 new custom parameters `$shoutout` and `$shoutout(name)`.
+
+* `$shoutout` - This one should be used only in custom commands, it will shoutout the name of the user who used the command.
+* `$shoutout(name)` - This one gives a shoutout to the user that is between parenthesis, for example:
+    * `$shoutout(darthminos)`
+    * `$shoutout($username)`
+
+If you want to make a shoutout and also show text in chat you can insert the text after the custom parameter:
+
+* `$shoutout($username) Thanks for the follow $username!`
 
 ## OVERLAY SETUP IN OBS / SLOBS 
 
